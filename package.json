@@ -1,0 +1,32 @@
+{
+  "name": "my-home",
+  "version": "0.1.0",
+  "description": "Comprehensive Health & Wellness App",
+  "private": true,
+  "workspaces": [
+    "apps/backend",
+    "apps/web",
+    "packages/shared-types"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w apps/backend\" \"npm run dev -w apps/web\"",
+    "dev:backend": "npm run dev -w apps/backend",
+    "dev:web": "npm run dev -w apps/web",
+    "build": "npm run build -w apps/backend && npm run build -w apps/web",
+    "build:backend": "npm run build -w apps/backend",
+    "build:web": "npm run build -w apps/web",
+    "test": "npm run test -w apps/backend && npm run test -w apps/web",
+    "test:backend": "npm run test -w apps/backend",
+    "test:web": "npm run test -w apps/web",
+    "db:migrate": "npm run db:migrate -w apps/backend",
+    "db:seed": "npm run db:seed -w apps/backend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "typescript": "^5.1.6"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
